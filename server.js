@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 dotenv.config(); //must have, to read env
 
 import express from "express";
-import userRouter from "./routes/users.js";
+import { userRouter } from "./routes/index.js";
 import connect from "./database/database.js";
 
 const app = express();
@@ -16,8 +16,5 @@ app.listen(port, async () => {
   console.log(`listen on port: ${port}`);
 });
 
-app.get("/", (req, res) => {
-  res.send("From response 1");
-});
-
+//USER
 app.use("/users", userRouter);

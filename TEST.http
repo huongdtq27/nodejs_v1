@@ -6,11 +6,11 @@ GET http://localhost:3002/users
 
 ###req
 
-POST http://localhost:3002/users/login 
+POST http://localhost:3002/users/register 
 content-type: application/json
 
 {
-    "email":"milo", 
+"email":"milo7@gmail.com", 
 "password": "12345"
 }
 
