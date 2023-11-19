@@ -51,7 +51,16 @@ const login = async ({ email, password }) => {
   };
 };
 
+const getUserByName = async (name) => {
+  const existedUser = await User.findOne({ name });
+  if (!existedUser) {
+    throw new Exception("Not found user with name" + name);
+  }
+  return { ...existedUser.toObject(), password: "not show" };
+};
+
 export default {
   register,
   login,
+  getUserByName,
 };

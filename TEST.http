@@ -24,3 +24,10 @@ content-type: application/json
 "password": "12345",
 "name": "Milo"
 }
+
+
+
+### GET USER BY NAME
+GET http://localhost:3002/users/Milo
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1NTllYWNmODkyYWMwOTgyMzk1Y2IwOCIsIm5hbWUiOiJNaWxvIiwiZW1haWwiOiJtaWxvN0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRxNzE2Y3JwYW51WnU4L0tIMnAwVHF1akV2TDBwUndtN0RKekhBZVdJZGFnbUcuMTNoYkJtdSIsIl9fdiI6MH0sImlhdCI6MTcwMDM5NjMxNCwiZXhwIjoxNzAwMzk2MzE0fQ.G_rswouBwr82CKqmAZpjtOCXX304y98wLjz65atB-So
+

@@ -54,7 +54,24 @@ const login = async (req, res) => {
     });
   }
 };
+
+const getUserByName = async (req, res) => {
+  debugger;
+  try {
+    const name = req?.params?.name;
+    const user = await userRepository.getUserByName(name);
+    res.status(HttpStatusCode.OK).json({
+      message: "Get user successfully",
+      data: user,
+    });
+  } catch (e) {
+    res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).json({
+      message: e.toString(),
+    });
+  }
+};
 export default {
   register,
   login,
+  getUserByName,
 };
