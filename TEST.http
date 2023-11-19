@@ -4,13 +4,23 @@ GET http://localhost:3002/
 ###
 GET http://localhost:3002/users
 
-###req
+### REGISTER
 
 POST http://localhost:3002/users/register 
 content-type: application/json
 
 {
 "email":"milo7@gmail.com", 
-"password": "12345"
+"password": "12345",
+"name": "Milo"
 }
 
+### LOGIN
+POST http://localhost:3002/users/login 
+content-type: application/json
+
+{
+"email":"milo7@gmail.com", 
+"password": "12345",
+"name": "Milo"
+}

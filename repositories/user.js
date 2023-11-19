@@ -1,6 +1,7 @@
 import { User } from "../models/index.js";
 import Exception from "../exceptions/Exception.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const register = async ({ name, email, password, phoneNumber, address }) => {
   const existingUser = await User.findOne({ email }).exec();
@@ -23,6 +24,34 @@ const register = async ({ name, email, password, phoneNumber, address }) => {
     password: "Not show",
   };
 };
+
+const login = async ({ email, password }) => {
+  let existingUser = await User.findOne({ email }).exec();
+  if (!existingUser) throw new Exception(Exception.WRONG_EMAIL_AND_PASSWORD);
+
+  let isMatch = await bcrypt.compare(password, existingUser.password);
+  if (!isMatch) throw new Exception(Exception.WRONG_EMAIL_AND_PASSWORD);
+
+  //create Json Web Token
+  let token = jwt.sign(
+    {
+      data: existingUser,
+    },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: "30 days",
+    }
+  );
+
+  //clone an add more properties
+  return {
+    ...existingUser.toObject(),
+    password: "not show",
+    token: token,
+  };
+};
+
 export default {
   register,
+  login,
 };
