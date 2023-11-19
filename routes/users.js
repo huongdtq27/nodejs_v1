@@ -1,5 +1,6 @@
 import express from "express";
 import { body, validationResult, query } from "express-validator";
+import usersController from "../controllers/users.js";
 
 const router = express.Router();
 
@@ -15,13 +16,7 @@ router.post(
     .custom(async (value) => {
       if (value == "milo") throw new Error("Email is milo");
     }),
-  (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-    res.send("Login user");
-  }
+  usersController.login
 );
 
 router.post("/register", (req, res) => {
