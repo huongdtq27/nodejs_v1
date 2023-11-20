@@ -1,8 +1,6 @@
 ### GET
 GET http://localhost:3002/
 
-###
-GET http://localhost:3002/users
 
 ### REGISTER
 
@@ -10,7 +8,7 @@ POST http://localhost:3002/users/register
 content-type: application/json
 
 {
-"email":"milo7@gmail.com", 
+"email":"milo11@gmail.com", 
 "password": "12345",
 "name": "Milo"
 }
@@ -20,14 +18,12 @@ POST http://localhost:3002/users/login
 content-type: application/json
 
 {
-"email":"milo7@gmail.com", 
-"password": "12345",
-"name": "Milo"
+"email":"milo@gmail.com", 
+"password": "12345"
 }
-
 
 
 ### GET USER BY NAME
 GET http://localhost:3002/users/Milo
-Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1NTllYWNmODkyYWMwOTgyMzk1Y2IwOCIsIm5hbWUiOiJNaWxvIiwiZW1haWwiOiJtaWxvN0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRxNzE2Y3JwYW51WnU4L0tIMnAwVHF1akV2TDBwUndtN0RKekhBZVdJZGFnbUcuMTNoYkJtdSIsIl9fdiI6MH0sImlhdCI6MTcwMDM5NjMxNCwiZXhwIjoxNzAwMzk2MzE0fQ.G_rswouBwr82CKqmAZpjtOCXX304y98wLjz65atB-So
-
+content-type: application/json
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1NWEzMDQ5ODA1MDliZmRjMTQ2ZWY5ZCIsIm5hbWUiOiJNaWxvIiwiZW1haWwiOiJtaWxvQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJFduTjVpNTZmM1N2Ui9LUTZGLlo4NC5wUkxCSHVVdWc1Z0kxdTVmaWNYeUZRbnVjdFo2ZUV1Iiwicm9sZSI6ImFkbWluIiwiX192IjowfSwiaWF0IjoxNzAwNDEwOTAwLCJleHAiOjE3MDMwMDI5MDB9._elmpN3AH7NmGD58U0PRGTfVfiudb4eHHuwt6h70eWo

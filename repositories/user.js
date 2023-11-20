@@ -3,6 +3,14 @@ import Exception from "../exceptions/Exception.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+//temporary mapping role function :)
+const mappingRoles = (email) => {
+  if (email == "milo@gmail.com") {
+    return "admin";
+  }
+  return "normal-user";
+};
+
 const register = async ({ name, email, password, phoneNumber, address }) => {
   const existingUser = await User.findOne({ email }).exec();
   if (!!existingUser) {
@@ -17,6 +25,7 @@ const register = async ({ name, email, password, phoneNumber, address }) => {
     password: hashedPassword,
     phoneNumber,
     address,
+    role: mappingRoles(email),
   });
 
   return {

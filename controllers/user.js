@@ -44,6 +44,7 @@ const login = async (req, res) => {
   //call repository
   try {
     let existingUser = await userRepository.login({ email, password });
+
     res.status(HttpStatusCode.OK).json({
       message: "Login user successfully",
       data: existingUser,
@@ -56,7 +57,6 @@ const login = async (req, res) => {
 };
 
 const getUserByName = async (req, res) => {
-  debugger;
   try {
     const name = req?.params?.name;
     const user = await userRepository.getUserByName(name);

@@ -8,7 +8,6 @@ export default mongoose.model(
     id: { type: ObjectId },
     name: {
       type: String,
-      required: true,
       validate: {
         validator: (value) => value.length > 3,
         message: "Username must be at least 3 characters",
@@ -33,6 +32,9 @@ export default mongoose.model(
     address: {
       type: String,
       required: false,
+    },
+    role: {
+      type: String,
     },
   })
 );
