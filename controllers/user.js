@@ -57,6 +57,7 @@ const login = async (req, res) => {
 };
 
 const getUserByName = async (req, res) => {
+  console.log("🚀 milo2 use controller")
   try {
     const name = req?.params?.name;
     const user = await userRepository.getUserByName(name);

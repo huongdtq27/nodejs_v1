@@ -26,7 +26,7 @@ const register = async ({ name, email, password, phoneNumber, address }) => {
     phoneNumber,
     address,
     role: mappingRoles(email),
-  });
+  })
 
   return {
     ...newUser._doc,
@@ -55,17 +55,18 @@ const login = async ({ email, password }) => {
   //clone an add more properties
   return {
     ...existingUser.toObject(),
-    password: "not show",
+   // password: "not show",
     token: token,
   };
 };
 
 const getUserByName = async (name) => {
-  const existedUser = await User.findOne({ name });
+  console.log("🚀 ~milo2 repositories:")
+  const existedUser = await User.findOne({ name }).select('-password');
   if (!existedUser) {
     throw new Exception("Not found user with name" + name);
   }
-  return { ...existedUser.toObject(), password: "not show" };
+  return { ...existedUser.toObject() };
 };
 
 export default {

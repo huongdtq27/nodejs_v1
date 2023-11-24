@@ -10,4 +10,12 @@ router.post("/register", userController.register);
 router.post("/login", body("email").isEmail(), body("password").isLength({ min: 5 }), userController.login);
 
 router.get("/:name", checkPermissionByToken(["admin"]), userController.getUserByName);
+
+// same route name
+// router.get('/:name', (req, res, next)=> {
+//     next()
+// })
+// router.get('/:name', ()=> {
+// })
+
 export default router;
